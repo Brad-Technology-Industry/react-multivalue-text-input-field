@@ -1,0 +1,15 @@
+node_modules
+__generated__
+build
+App.test.tsx
+tailwind.config.js
+setupTests.ts
+react-app-env.d.ts
+commitlint.config.js
+.vscode/settings.json
+package-lock.json
+package.json
+public/index.html
+README.md
+tsconfig.json
+tailwind.config.js
