@@ -1,0 +1,89 @@
+/*======================================================================== 
+                        label Styling
+*=========================================================================
+*/
+.label-styles {
+   position: relative;
+   margin-block-end: 0.75rem;
+   margin-inline-start: 0.54rem;
+   font-weight: bold;
+}
+
+.required-styles {
+   color: rgb(239 68 68 / 1);
+   position: absolute;
+   top: -0.25rem;
+   right: -0.75rem;
+}
+
+/*================================================ 
+ *          Main Container styles
+ *================================================
+*/
+
+.container-styles {
+   max-width: 35rem;
+   display: flex;
+   flex-wrap: wrap;
+   row-gap: 0.25rem;
+   border-width: 0.01rem;
+   position: relative;
+}
+
+/*================================================ 
+ *          List styles
+ *================================================
+*/
+.list-styles {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 0.25rem;
+}
+
+.list-items-styles {
+   width: fit-content;
+   display: flex;
+   align-items: center;
+   gap: 0.5rem;
+   border-radius: 50%;
+   padding-inline: 0.75rem;
+   padding-bottom: 0.375rem;
+   font-size: 0.75rem;
+   line-height: 1rem;
+   background-color: #e6e6e6;
+}
+
+.option-styles {
+   font-weight: 500;
+   color: #808080;
+}
+
+/*================================================================
+ *   Utiltiees styles
+ *================================================================
+*/
+
+.remove-item-icon-styles {
+   cursor: pointer;
+}
+
+.remove-all-items-icon-styles {
+   cursor: pointer;
+   border-radius: 0 0.375rem 0.375rem 0;
+   padding-inline: 0.5rem;
+   padding-block: 0.625rem;
+   position: absolute;
+   top: 0;
+   right: 0;
+
+   /* Transition effect */
+   transition: all ease-in-out 300ms;
+}
+
+.remove-all-items-icon-styles:hover {
+   transform: scale(1.05);
+}
+
+.remove-all-items-icon-styles:active {
+   transform: scale(0.96);
+}
