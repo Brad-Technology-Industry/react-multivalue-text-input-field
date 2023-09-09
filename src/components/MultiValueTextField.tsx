@@ -2,13 +2,14 @@
 // import { IconType } from '@/types/icontypes/icon.type';
 import React, { useState } from 'react';
 // import { Icons } from '..';
+import '../styles/main.css';
 
 type MultiSelectType = {
    label: string;
    placeholder: string;
    required?: boolean;
    values: string[];
-   setValues: any;
+   setValues: React.Dispatch<React.SetStateAction<string[]>>;
 };
 
 const MultiInputField: React.FC<MultiSelectType> = ({
@@ -47,30 +48,21 @@ const MultiInputField: React.FC<MultiSelectType> = ({
 
    return (
       <div>
-         <h2 className="relative mb-3 ml-2 max-w-max font-bold">
+         <h2 className="label-styles">
             {label}
-            {required && (
-               <span className="absolute -right-3 -top-1 block text-red-500">
-                  *
-               </span>
-            )}
+            {required && <span className="required-styles">*</span>}
          </h2>
          <div
-            className={`relative flex max-w-[35rem] flex-wrap gap-y-1 rounded-md border p-2 ${
-               isFocused && 'border-[var(--primary-800)]'
+            className={`container-styles ${
+               isFocused && 'container-styles-focus'
             }`}
          >
-            <ul className="flex flex-wrap gap-1">
+            <ul className="list-styles">
                {inputValues.map((option, index) => (
-                  <li
-                     key={index}
-                     className="flex w-fit items-center gap-2 rounded-full bg-[var(--secondary-300)] px-3 py-1.5 text-xs"
-                  >
-                     <span className="font-medium text-[var(--secondary-800)]">
-                        {option}
-                     </span>
+                  <li key={index} className="list-items-styles">
+                     <span className="option-styles">{option}</span>
                      <div
-                        className="cursor-pointer"
+                        className="remove-item-icon-styles "
                         onClick={() => handleRemoveElement(index)}
                      >
                         {/* <Icons
@@ -88,7 +80,7 @@ const MultiInputField: React.FC<MultiSelectType> = ({
                onFocus={() => setIsFocused(true)}
                onBlur={() => setIsFocused(false)}
                placeholder={inputValues.length > 0 ? 'add' : placeholder}
-               className="w-full outline-none placeholder:text-xs"
+               className=""
                onKeyUp={(event) =>
                   event.key === 'Enter' || event.key === ','
                      ? handleAddElement(event)
@@ -98,7 +90,7 @@ const MultiInputField: React.FC<MultiSelectType> = ({
 
             <div
                onClick={handleClearAll}
-               className="absolute right-0 top-0 cursor-pointer rounded-r-md px-2 py-2.5 transition-all duration-300 hover:scale-105 active:scale-[0.96]"
+               className="remove-all-items-icon-styles"
             >
                {/* <Icons icon={IconType.CLOSE} size={20} onClick={() => {}} /> */}
                <p>&times;</p>
