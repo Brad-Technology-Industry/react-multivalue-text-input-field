@@ -1,22 +1,20 @@
 'use client';
-// import { IconType } from '@/types/icontypes/icon.type';
 import React, { useState } from 'react';
-// import { Icons } from '..';
-import '../styles/main.css';
-
-type MultiSelectType = {
-   label: string;
-   placeholder: string;
-   required?: boolean;
-   values: string[];
-   setValues: React.Dispatch<React.SetStateAction<string[]>>;
-};
+import styles from '../styles/main.module.css';
+import { type MultiSelectType } from '../types/custom.types';
 
 const MultiInputField: React.FC<MultiSelectType> = ({
    values,
    setValues,
    label,
+   labelStyle,
    placeholder,
+   placeholderStyle,
+   optionStyle,
+   optionTextStyle,
+   optionCloseIcon,
+   optionCloseIconStyle,
+   containerFocusedStyle,
    required,
 }) => {
    /** State management */
@@ -48,24 +46,43 @@ const MultiInputField: React.FC<MultiSelectType> = ({
 
    return (
       <div>
-         <h2 className="label-styles">
+         <h2 className={`${styles['label-styles']} ${labelStyle}`}>
             {label}
-            {required && <span className="required-styles">*</span>}
+            {required && (
+               <span className={`${styles['required-styles']}`}>*</span>
+            )}
          </h2>
          <div
-            className={`container-styles ${
-               isFocused && 'container-styles-focus'
-            }`}
+            className={`${styles['container-styles']}`}
+            style={{
+               borderColor: isFocused ? containerFocusedStyle ?? '#1A1A11' : '',
+            }}
          >
-            <ul className="list-styles">
+            <ul className={`${styles['list-styles']}`}>
                {inputValues.map((option, index) => (
-                  <li key={index} className="list-items-styles">
-                     <span className="option-styles">{option}</span>
+                  <li key={index} className={`${styles['list-items-styles']}`}>
+                     <span
+                        className={`${styles['option-styles']}`}
+                        style={{
+                           color: optionTextStyle?.color,
+                           fontSize: optionTextStyle?.fontSize,
+                           fontFamily: optionTextStyle?.fontFamily,
+                           fontWeight: optionTextStyle?.fontWeight,
+                        }}
+                     >
+                        {option}
+                     </span>
                      <div
-                        className="remove-item-icon-styles "
+                        className={`${styles['remove-item-icon-styles']}`}
                         onClick={() => handleRemoveElement(index)}
                      >
-                        <p>&times;</p>
+                        {optionCloseIcon ? (
+                           <p className={`${optionCloseIconStyle}`}>
+                              {optionCloseIcon}
+                           </p>
+                        ) : (
+                           <p>&times;</p>
+                        )}
                      </div>
                   </li>
                ))}
@@ -82,12 +99,10 @@ const MultiInputField: React.FC<MultiSelectType> = ({
                      : null
                }
             />
-
             <div
                onClick={handleClearAll}
-               className="remove-all-items-icon-styles"
+               className={`${styles['remove-all-items-icon-styles']}`}
             >
-               {/* <Icons icon={IconType.CLOSE} size={20} onClick={() => {}} /> */}
                <p>&times;</p>
             </div>
          </div>

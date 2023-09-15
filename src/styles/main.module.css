@@ -1,10 +1,5 @@
 /* CSS root variables */
 :root {
-   /* MEDIA */
-   --small-device: 1024px;
-   --medium-device: 1280px;
-   --large-device: 1728px;
-
    /* Colors Guiddance */
    /* Primary */
    --primary-800: #1a1a11;

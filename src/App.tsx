@@ -11,6 +11,8 @@ function App() {
             values={values}
             setValues={setValues}
             required={true}
+            // containerFocusedStyle={'blue'}
+            // optionTextStyle={{ color: 'red', fontSize: 14, fontWeight: 'bold' }}
          />
       </div>
    );
