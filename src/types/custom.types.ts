@@ -4,7 +4,7 @@ export interface MultiSelectType {
    placeholder: string;
    optionCloseIcon?: React.ReactNode;
    placeholderStyle?: string;
-   optionStyle?: string;
+   optionStyle?: OptionStyleType;
    optionTextStyle?: OptionTextType;
    optionCloseIconStyle?: string;
    containerFocusedStyle?: string;
@@ -18,4 +18,11 @@ interface OptionTextType {
    fontSize?: number;
    fontFamily?: string;
    fontWeight?: string;
+}
+
+interface OptionStyleType {
+   backgroundColor?: string;
+   borderRadius?: number;
+   paddingHorizontal?: number;
+   paddingVertical?: number;
 }
