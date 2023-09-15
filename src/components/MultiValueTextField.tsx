@@ -65,11 +65,6 @@ const MultiInputField: React.FC<MultiSelectType> = ({
                         className="remove-item-icon-styles "
                         onClick={() => handleRemoveElement(index)}
                      >
-                        {/* <Icons
-                           icon={IconType.CLOSE}
-                           size={17}
-                           onClick={() => {}}
-                        /> */}
                         <p>&times;</p>
                      </div>
                   </li>

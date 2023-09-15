@@ -10,6 +10,7 @@ function App() {
             placeholder={'Testing placeholder'}
             values={values}
             setValues={setValues}
+            required={true}
          />
       </div>
    );
