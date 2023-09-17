@@ -60,7 +60,16 @@ const MultiInputField: React.FC<MultiSelectType> = ({
          >
             <ul className={`${styles['list-styles']}`}>
                {inputValues.map((option, index) => (
-                  <li key={index} className={`${styles['list-items-styles']}`}>
+                  <li
+                     key={index}
+                     className={`${styles['list-items-styles']}`}
+                     style={{
+                        backgroundColor: optionStyle?.backgroundColor,
+                        paddingInline: optionStyle?.paddingHorizontal,
+                        paddingBlock: optionStyle?.paddingVertical,
+                        borderRadius: optionStyle?.borderRadius,
+                     }}
+                  >
                      <span
                         className={`${styles['option-styles']}`}
                         style={{
