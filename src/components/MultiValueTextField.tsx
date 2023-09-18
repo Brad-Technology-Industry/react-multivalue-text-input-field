@@ -1,7 +1,7 @@
 'use client';
 import React, { useState } from 'react';
-import styles from '../styles/main.module.css';
-import { type MultiSelectType } from '../types/custom.types';
+import styles from './styles/main.module.css';
+import { type MultiSelectType } from './types/custom.types';
 
 const MultiInputField: React.FC<MultiSelectType> = ({
    values,
@@ -9,7 +9,6 @@ const MultiInputField: React.FC<MultiSelectType> = ({
    label,
    labelStyle,
    placeholder,
-   placeholderStyle,
    optionStyle,
    optionTextStyle,
    optionCloseIcon,
