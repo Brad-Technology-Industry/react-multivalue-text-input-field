@@ -1,7 +1,7 @@
 'use client';
 import React, { useState } from 'react';
 import styles from './styles/main.module.css';
-import { type MultiSelectType } from './types/custom.types';
+import { type MultiSelectType } from './types/custom';
 
 const MultiInputField: React.FC<MultiSelectType> = ({
    values,
