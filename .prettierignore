@@ -8,7 +8,7 @@ react-app-env.d.ts
 commitlint.config.js
 .vscode/settings.json
 package-lock.json
-package.json
+
 public/index.html
 README.md
 tsconfig.json
