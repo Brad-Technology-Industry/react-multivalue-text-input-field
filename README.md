@@ -1,46 +1,84 @@
-# Getting Started with Create React App
+# MultiInputField Component
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The `MultiInputField` component is a React multi-input field allowing users to add, clear, or remove multiple values. It supports custom styles, labels, and placeholders, and is perfect for use cases where users need to input or manage a list of tags or keywords.
 
-## Available Scripts
+## Installation
 
-In the project directory, you can run:
+Install the package via npm:
 
-### `npm start`
+```bash
+npm install react-multivalue-text-input-field
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Usage
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Importing the Component
 
-### `npm test`
+```javascript
+import MultiInputField from 'react-multivalue-text-input-field';
+import React, { useState } from 'react';
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Basic Example
 
-### `npm run build`
+```javascript
+const App = () => {
+  const [values, setValues] = useState<string[]>([]);
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  return (
+    <MultiInputField
+      values={values}
+      setValues={setValues}
+      label="Add Items"
+      placeholder="Enter items"
+      required={true}
+    />
+  );
+};
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+export default App;
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Component Props
 
-### `npm run eject`
+| Prop                  | Type                           | Description                                                                 |
+|-----------------------|--------------------------------|-----------------------------------------------------------------------------|
+| `values`              | `string[]`                    | Array of initial values for the input field.                                |
+| `setValues`           | `(values: string[]) => void`  | Callback function called when a value is added or removed.                  |
+| `label`               | `string`                      | Label for the input field.                                                  |
+| `labelStyle`          | `string`                      | Additional styles for the label.                                            |
+| `placeholder`         | `string`                      | Placeholder text for the input field.                                       |
+| `optionStyle`         | `OptionStyleType`             | Styles for the list of values.                                              |
+| `optionTextStyle`     | `OptionTextType`              | Styles for the text in each value option.                                   |
+| `optionCloseIcon`     | `React.ReactNode`             | Custom icon component for removing a value.                                 |
+| `optionCloseIconStyle`| `string`                      | Styles for the remove icon.                                                 |
+| `containerFocusedStyle` | `string`                   | Styles applied to the container when it is focused.                         |
+| `required`            | `boolean`                     | Indicates if the input field is required.                                   |
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Customization
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **Custom Label and Placeholder**: Customize the label and placeholder for a tailored user experience.
+- **Value Styles**: Apply `optionStyle` and `optionTextStyle` for styling the list items.
+- **Remove Icon**: Use `optionCloseIcon` to replace the default remove icon with a custom icon.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Example with Custom Styling and Remove Icon
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```javascript
+<MultiInputField
+  values={values}
+  setValues={setValues}
+  label="Items"
+  placeholder="Add item"
+  labelStyle="custom-label-style"
+  optionStyle={{ backgroundColor: '#f5f5f5', borderRadius: '4px' }}
+  optionTextStyle={{ color: '#333', fontSize: '14px' }}
+  optionCloseIcon={<YourCustomIcon />}
+  optionCloseIconStyle="custom-icon-style"
+  containerFocusedStyle="focused-style"
+  required
+/>
+```
 
-## Learn More
+## License
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+This project is licensed under the MIT License.
