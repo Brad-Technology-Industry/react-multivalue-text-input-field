@@ -1,6 +1,6 @@
 {
    "name": "react-multivalue-text-input-field",
-   "version": "1.0.1",
+   "version": "1.0.2",
    "private": false,
    "keywords": [
       "react",
@@ -14,7 +14,7 @@
       "start": "react-scripts start",
       "build": "yarn build:esm && yarn build:cjs",
       "build:esm": "tsc",
-      "build:cjs": "tsc --module commonjs --outDir dist/cjs",
+      "build:cjs": "tsc --module commonjs --outDir dist/cjs --noEmit false",
       "test": "jest --config jest.config.json",
       "eject": "react-scripts eject",
       "test-all": "npm run check-format && npm run check-lint && npm run check-types && npm run build",
